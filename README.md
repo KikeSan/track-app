@@ -5,12 +5,13 @@
     <br><br>
 </p>
 #Track App
-App for register assistance. 
+<br>
+App for register assistance. <br>
 Developed with ♥ & ReactJS
-
 Just run:
 ```console
 npm install
 npm run start
 ```
+
 [kike.pe](https://kike.pe) © 2018
