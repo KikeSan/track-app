@@ -1,8 +1,16 @@
-# React quickstart
-For basic React application
+<p align="center">
+    <a href="http://kike.pe" target="_blank">
+        <img src="https://kike.pe/img/logoBlue.svg" alt="kike.pe" width="100"/>
+    </a>
+    <br><br>
+</p>
+# Track App
+App for register assistance. 
+Developed with ♥ & ReactJS
+
 Just run:
 ```console
 npm install
 npm run start
 ```
-If you want to see more details follow [this tutorial](https://gist.github.com/paulrrdiaz/f5dcbdb6bd8f997a21f2961ddddb6a68)
+[kike.pe](https://kike.pe) © 2018
