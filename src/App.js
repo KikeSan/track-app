@@ -1,28 +1,62 @@
-import React, { Component } from 'react'
-import styles from './App.css'
+import React, { Component } from 'react';
+import styles from './App.css';
+import Dashboard from './containers/dashboard';
+
 
 export default class App extends Component {
-  state = {
-    message: 'Message'
+  constructor(){
+    super();
+    this.state = {
+      user:'admin',
+      pass:'',
+      success:false
+    }
+    this.handleChange = this.handleChange.bind(this);
+    this.verifyUser = this.verifyUser.bind(this);
   }
+  
 
-  handleToggleMessage = (message) => {
-    this.setState({ message })
+  handleChange = e => {
+    const hasError = e.target.value.length < 3;
+    //const isPresent = this.state.contacts.some(c => c.name === e.target.value)
+    this.setState({
+      hasError,
+      [e.target.name]: e.target.value
+    })
+  }
+  verifyUser = e =>{
+    e.preventDefault();
+    console.log(this.state.user,this.state.pass)
+    this.setState({
+      success:true
+    })
+    /* if(this.state.user==='admin' && this.state.pass=='@dm1n'){
+      this.setState({
+        success:true
+      })
+    } */
   }
 
   render() {
-    return (
-      <div className={styles.app}>
-        <div className={styles.container}>
-          <h1>{this.state.message}</h1>
-          <button 
-            className={styles.buttonSuccess} 
-            onClick={() => this.handleToggleMessage('Hello World!!! :D')}>Hello</button>
-          <button 
-            className={styles.buttonPrimary} 
-            onClick={() => this.handleToggleMessage('Bye World!!! :(')}>Bye</button>
+    if(!this.state.success){
+      return (
+        <div className={styles.loginWrapper}>
+          <div className={styles.loginContainer}>
+            <div className={styles.panel}>
+              <img src="https://kike.pe/img/logoBlue.svg" className={styles.logo}/>
+              <h2>Tracking</h2>
+              <form>
+                <input className={styles.inputForm} type="text" name="user" placeholder="Usuario" onChange={this.handleChange}/>
+                <input className={styles.inputForm} type="password"  name="pass" placeholder="Contraseña" onChange={this.handleChange}/>
+                <button className={styles.btnPrimary} onClick={this.verifyUser} type="submit">Ingresar</button>
+              </form>
+            </div>
+          </div>
         </div>
-      </div>
-    )
+      )
+    }else{
+      console.log('App',this.state.user)
+      return(<Dashboard user={this.state.user}/>)
+    }
   }
 }
