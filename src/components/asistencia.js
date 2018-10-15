@@ -2,18 +2,32 @@ import React,{Component} from 'react';
 import styles from '../App.css';
 export default class Asistencia extends Component{
   constructor(props){
-    super();
+    super(props);
     this.state={
       ent:false,
-      in:''
+      in:'',
+      horaIn:'',
+      horaOut:''
     }
     this.toogleBtn=this.toogleBtn.bind(this);
     this.checkText=this.checkText.bind(this);
   }
   toogleBtn(){
-    this.state.ent?
-    this.setState({in:''}):
-    this.setState({in:'Entrada: '+new Date})
+    const dat = new Date();
+
+    if(this.state.ent){
+      this.setState({
+        in:'',
+        horaOut: dat.getHours()+':'+dat.getMinutes()+':'+dat.getSeconds()
+      })
+      this.props.onClick(dat.getDay()+'/'+dat.getMonth()+'/'+dat.getFullYear(), this.state.horaIn, dat.getHours()+':'+dat.getMinutes()+':'+dat.getSeconds());
+    }else{
+      this.setState({
+        in:'Entrada: '+dat,
+        horaIn: dat.getHours()+':'+dat.getMinutes()+':'+dat.getSeconds()
+      });
+    }
+
     this.setState({
       ent:!this.state.ent
     })
@@ -24,16 +38,18 @@ export default class Asistencia extends Component{
   }
   render(){
     return(
-      <div className={styles.asistencia}>
+      <div>
         <h2>Asistencia</h2>
-        <div>
-          <h3>Hola {this.props.user},</h3>
-          <p>Bienvenido al sistema de seguimiento de tiempos y actividades.</p>
-          <a className={this.state.ent?styles.btnSalida:styles.btnEntrada} onClick={this.toogleBtn}>{this.state.ent?'Registrar salida':'Registrar entrada'}</a>
-          {this.state.in!==''?
-            <p className={styles.time}>{this.state.in}</p>:
-            <p></p>
-          }
+        <div className={styles.asistencia}>
+          <div>
+            <h3>Hola {this.props.user},</h3>
+            <p>Bienvenido al sistema de seguimiento de tiempos y actividades.</p>
+            <a className={this.state.ent?styles.btnSalida:styles.btnEntrada} onClick={this.toogleBtn}>{this.state.ent?'Registrar salida':'Registrar entrada'}</a>
+            {this.state.in!==''?
+              <p className={styles.time}>{this.state.in}</p>:
+              <p></p>
+            }
+          </div>
         </div>
       </div>
     )

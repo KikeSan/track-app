@@ -10,18 +10,18 @@ export default class Sidebar extends Component{
         this.checkActive = this.checkActive.bind(this);
     }
     checkActive(ref){
-        console.log(ref.currentTarget.id)
+        console.log(typeof Number(ref.currentTarget.id))
         this.setState({
-            active:ref.currentTarget.id
+            active:Number(ref.currentTarget.id)
         })
-        this.props.handleClick(ref.currentTarget.id===1?'track':'reporte');
+        this.props.handleClick(Number(ref.currentTarget.id)===1?'track':'reporte');
     }
     render(){
         console.log('active',this.state.active);
         
         return(
             <div className={styles.sidebar}>
-                <img src="https://kike.pe/img/logoAzul.png" className={styles.logo}/>
+                <img src="https://contanex.com/central/tracking/assets/images/logo.png" className={styles.logo}/>
                 <a className={this.state.active===1?styles.itemActive:styles.itemMenu} onClick={this.checkActive} id="1">Tracking</a>
                 <a className={this.state.active===2?styles.itemActive:styles.itemMenu} onClick={this.checkActive} id="2">Tus asistencias</a>
                 <hr/>

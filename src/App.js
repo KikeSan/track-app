@@ -27,14 +27,14 @@ export default class App extends Component {
   verifyUser = e =>{
     e.preventDefault();
     console.log(this.state.user,this.state.pass)
-    this.setState({
+    /* this.setState({
       success:true
-    })
-    /* if(this.state.user==='admin' && this.state.pass=='@dm1n'){
+    }) */
+    if(this.state.user==='admin' && this.state.pass=='@dm1n'){
       this.setState({
         success:true
       })
-    } */
+    }
   }
 
   render() {
@@ -43,13 +43,16 @@ export default class App extends Component {
         <div className={styles.loginWrapper}>
           <div className={styles.loginContainer}>
             <div className={styles.panel}>
-              <img src="https://kike.pe/img/logoBlue.svg" className={styles.logo}/>
-              <h2>Tracking</h2>
+              <img src="https://contanex.com/central/tracking/assets/images/contanex.png" className={styles.logoLogin}/>
+              <h2>Contanex Tracking</h2>
               <form>
                 <input className={styles.inputForm} type="text" name="user" placeholder="Usuario" onChange={this.handleChange}/>
                 <input className={styles.inputForm} type="password"  name="pass" placeholder="Contraseña" onChange={this.handleChange}/>
                 <button className={styles.btnPrimary} onClick={this.verifyUser} type="submit">Ingresar</button>
               </form>
+              <div><br/>
+                <p className={styles.small}>©2017 Contanex</p>
+              </div>
             </div>
           </div>
         </div>

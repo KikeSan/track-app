@@ -2,7 +2,7 @@
 html, body, * {
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif  !important;
   font-weight: 400;
 }
 
@@ -12,8 +12,9 @@ h1 {
 h2{
   font-size: 22px;
   line-height: 23px;
-  margin: 0.3em 0 0.3em 0;
+  margin: 0.3em 0 0.5em 0;
   vertical-align: middle;
+  font-weight: 300;
 }
 
 .app {
@@ -59,9 +60,13 @@ h2{
   margin: 0 auto;
   max-width: 380px;
 }
+.logoLogin{
+  max-width: 80px;
+  margin: 5px 0 20px;
+}
 .logo{
-  width: 60px;
-  margin: 20px;
+  max-width: 160px;
+  padding: 28px 20px;
 }
 .panel{
   margin: 0 20px;
@@ -71,12 +76,14 @@ h2{
   -ms-border-radius: 4px;
   -o-border-radius: 4px;
   background: #fff;
-  padding: 20px 30px;
+  padding: 30px 30px 20px;
   text-align: center;
 }
 .inputForm{
   width: 100%;
-  margin: 10px 0;
+  margin: 15px 0;
+  border: 0;
+  border-bottom: 1px solid #ccc;
 }
 .btnPrimary{
   background: #02a2ec;
@@ -89,6 +96,10 @@ h2{
   text-decoration: none;
   margin: 15px;
   cursor: pointer;
+}
+.small{
+  color: #888;
+  font-size: 12px;
 }
 .sidebar{
   float: left;
@@ -243,4 +254,30 @@ header{
   display: inline-block;
   border-radius: 50%;
   margin-right: 10px;
+}
+
+.reporte{
+  background: #fff;
+  border: 1px solid #dedede;
+  -webkit-box-shadow: 3px 3px 6px 0px rgba(68,68,68,0.1);
+  -moz-box-shadow: 3px 3px 6px 0px rgba(68,68,68,0.1);
+  box-shadow: 3px 3px 6px 0px rgba(68,68,68,0.1);
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  padding: 20px 30px 0px 30px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.reporte ul{
+  list-style: none;
+}
+.itemCol{
+  display: inline-block;
+  width: 25%;
+}
+.itemCol p{
+  margin-bottom: 10px;
 }
